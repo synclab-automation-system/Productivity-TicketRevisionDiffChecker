@@ -1,0 +1,13 @@
+{
+  "name": "productivity-ticket-revision-diff-checker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "test:e2e:live": "node e2e/live-github.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.55.0"
+  }
+}
