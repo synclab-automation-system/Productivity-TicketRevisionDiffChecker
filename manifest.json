@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Ticket Revision Diff Checker",
+  "version": "0.1.0",
+  "description": "Compare raw-text revisions of GitHub Issue descriptions.",
+  "permissions": ["storage"],
+  "host_permissions": ["https://api.github.com/*"],
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*/*/issues/*"],
+      "js": ["src/content.js"],
+      "css": ["src/content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_ui": {
+    "page": "src/options.html",
+    "open_in_tab": true
+  },
+  "action": {
+    "default_title": "Ticket Revision Diff Checker"
+  }
+}

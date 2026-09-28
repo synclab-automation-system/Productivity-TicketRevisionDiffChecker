@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ticket Revision Diff Checker — Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <main class="settings">
+    <h1>Ticket Revision Diff Checker</h1>
+    <p class="lead">GitHub GraphQL yêu cầu authentication. Nhập fine-grained Personal Access Token để đọc revision history.</p>
+
+    <section class="card">
+      <label class="field">
+        <span>GitHub token</span>
+        <input id="token" type="password" autocomplete="off" placeholder="github_pat_…">
+      </label>
+      <label class="check">
+        <input id="remember" type="checkbox">
+        <span>Remember token trên browser này</span>
+      </label>
+      <p class="hint">Nếu không bật Remember, token chỉ được giữ trong <code>chrome.storage.session</code> và sẽ bị xóa khi browser/extension session kết thúc.</p>
+      <div class="actions">
+        <button id="save" class="primary" type="button">Save</button>
+        <button id="clear" type="button">Clear token</button>
+      </div>
+      <div id="status" class="status" aria-live="polite"></div>
+    </section>
+
+    <section class="card">
+      <h2>Quyền token</h2>
+      <ul>
+        <li>Public repository: fine-grained PAT có thể đọc public repository.</li>
+        <li>Private repository: chọn repository cần dùng và cấp <strong>Issues: Read-only</strong>.</li>
+        <li>Extension chỉ gọi GitHub GraphQL API để đọc Issue description và edit history.</li>
+      </ul>
+    </section>
+  </main>
+  <script src="options.js"></script>
+</body>
+</html>
